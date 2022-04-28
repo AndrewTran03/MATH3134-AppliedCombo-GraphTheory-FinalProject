@@ -1,9 +1,9 @@
-package ComboProject;
+package appiledcombofinalproject;
 
 public class MainDriver {
 
     public MainDriver() {
-
+        //Constructor left intentionally empty
     }
 
 
