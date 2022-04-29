@@ -11,6 +11,7 @@ public class GraphAlgorithms {
     private int numVertices;
     private LinkedList<Integer>[] adjacencyList;
     private String result;
+    private GraphAlgorithmsGUI visualizationWindow;
 
     @SuppressWarnings("unchecked")
     public GraphAlgorithms(int numVertices) {
