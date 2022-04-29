@@ -24,23 +24,22 @@ public class GraphAlgorithms {
 
 
     @SuppressWarnings("unchecked")
-    public void addGraphEdge(String first, String second) {
-        Integer firstVal = Integer.valueOf(first);
-        Integer secondVal = Integer.valueOf(second);
-        this.result += "(" + firstVal + ", " + secondVal + "), ";
-        adjacencyList[Integer.parseInt(first)].add((Integer.parseInt(second)));
+    public void addGraphEdge(int first, int second) {
+        this.result += "(" + first + ", " + second + "), ";
+        adjacencyList[first].add(second);
+        adjacencyList[second].add(first);
     }
 
 
     public Boolean hasCycle() {
-        Boolean[] hasVisitedVertices = new Boolean[this.numVertices];
-        for (int i = 0; i < hasVisitedVertices.length; i++) {
-            hasVisitedVertices[i] = Boolean.FALSE;
+        Boolean[] visitedVertices = new Boolean[this.numVertices];
+        for (int i = 0; i < this.numVertices; i++) {
+            visitedVertices[i] = false;
         }
 
-        for (int i = 0; i < hasVisitedVertices.length; i++) {
-            if (hasVisitedVertices[i] == false) {
-                if (hasCycleHelper(i, hasVisitedVertices, -1) == true) {
+        for (int j = 0; j < this.numVertices; j++) {
+            if (visitedVertices[j] == false) {
+                if (hasCycleHelper(j, visitedVertices, -1) == true) {
                     return true;
                 }
             }
@@ -54,9 +53,8 @@ public class GraphAlgorithms {
         Iterator<Integer> iter = this.adjacencyList[current].iterator();
         while (iter.hasNext()) {
             Integer currentItem = iter.next();
-            if (visitedVertices[currentItem] != false) {
-                if (hasCycleHelper(currentItem, visitedVertices,
-                    current) == true) {
+            if (visitedVertices[currentItem] == false) {
+                if (hasCycleHelper(currentItem, visitedVertices, current) == true) {
                     return true;
                 }
             }
