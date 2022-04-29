@@ -24,9 +24,11 @@ public class GraphAlgorithms {
 
 
     @SuppressWarnings("unchecked")
-    public void addGraphEdge(int first, int second) {
-        this.result += "(" + first + ", " + second + "), ";
-        adjacencyList[first].add(second);
+    public void addGraphEdge(String first, String second) {
+        Integer firstVal = Integer.valueOf(first);
+        Integer secondVal = Integer.valueOf(second);
+        this.result += "(" + firstVal + ", " + secondVal + "), ";
+        adjacencyList[Integer.parseInt(first)].add((Integer.parseInt(second)));
     }
 
 
@@ -69,10 +71,10 @@ public class GraphAlgorithms {
     public String displayHasCycleResults() {
         String result = "";
         if (this.hasCycle()) {
-            result = "Graph contains cycle";
+            result = "Graph Contains a Cycle";
         }
         else {
-            result = "Graph doesn't contains cycle";
+            result = "Graph Doesn't Contain a Cycle";
         }
         return result;
     }
