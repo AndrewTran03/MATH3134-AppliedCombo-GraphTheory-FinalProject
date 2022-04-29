@@ -2,7 +2,7 @@ package appiledcombofinalproject;
 
 import java.util.Comparator;
 
-public class GraphNodeComparator implements Comparator<GraphNodeUndirected> {
+public class GraphNodeComparator implements Comparator<GraphNode> {
 
     /**
      * Empty constructor (not used).
@@ -13,12 +13,13 @@ public class GraphNodeComparator implements Comparator<GraphNodeUndirected> {
 
 
     @Override
-    public int compare(GraphNodeUndirected first, GraphNodeUndirected second) {
-        if (first.getGraphNodeData().compareTo(second.getGraphNodeData()) < 0) {
+    public int compare(GraphNode first, GraphNode second) {
+        String firstData = String.valueOf(first.getGraphNodeData());
+        String secondData = String.valueOf(second.getGraphNodeData());
+        if (firstData.compareTo(secondData) < 0) {
             return -1;
         }
-        else if (first.getGraphNodeData().compareTo(second  
-            .getGraphNodeData()) > 0) {
+        else if (firstData.compareTo(secondData) > 0) {
             return 1;
         }
         else {
