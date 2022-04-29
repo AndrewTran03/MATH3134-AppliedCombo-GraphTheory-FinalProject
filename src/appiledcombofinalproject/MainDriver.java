@@ -14,10 +14,11 @@ public class MainDriver {
          * GraphNode<Integer> second = new GraphNode<Integer>(1);
          * GraphNode<Integer> third = new GraphNode<Integer>(2);
          */
-        GraphAlgorithms graphAlgo = new GraphAlgorithms(3);
-        graphAlgo.addGraphEdge(0, 1);
-        graphAlgo.addGraphEdge(1, 2);
-        graphAlgo.addGraphEdge(2, 0);
-        System.out.println(graphAlgo.toString());
+        GraphAlgorithms graph1 = new GraphAlgorithms(3);
+        graph1.addGraphEdge(0, 1);
+        graph1.addGraphEdge(1, 2);
+        graph1.addGraphEdge(2, 0);
+        System.out.println(graph1.toString());
+        System.out.println(graph1.displayHasCycleResults());
     }
 }

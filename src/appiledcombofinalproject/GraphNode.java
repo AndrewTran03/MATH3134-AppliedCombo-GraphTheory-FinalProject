@@ -1,18 +1,18 @@
 package appiledcombofinalproject;
 
-public class GraphNode<T> {
+public class GraphNode {
 
     /**
      * Fields
      */
-    private T data;
+    private String data;
 
-    public GraphNode(T data) {
+    public GraphNode(String data) {
         this.data = data;
     }
 
 
-    public T getGraphNodeData() {
+    public String getGraphNodeData() {
         return this.data;
     }
 
@@ -33,7 +33,7 @@ public class GraphNode<T> {
         }
 
         if (this.getClass() == obj.getClass()) {
-            GraphNode<T> other = (GraphNode<T>)obj;
+            GraphNode other = (GraphNode)obj;
             return this.getGraphNodeData().equals(other.getGraphNodeData());
         }
         else {

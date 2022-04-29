@@ -1,6 +1,7 @@
 package appiledcombofinalproject;
 
 import java.util.LinkedList;
+import java.util.Iterator;
 
 public class GraphAlgorithms {
 
@@ -10,15 +11,13 @@ public class GraphAlgorithms {
     private int numVertices;
     private LinkedList<Integer>[] adjacencyList;
     private String result;
-    // private String graphAlgoType;
 
     @SuppressWarnings("unchecked")
-    public GraphAlgorithms(int numGraphVertices) {
-        // this.graphAlgoType = graphAlgoType;
-        this.numVertices = numGraphVertices;
-        this.adjacencyList = new LinkedList[numGraphVertices];
-        for (int i = 0; i < this.numVertices; i++) {
-            adjacencyList[i] = new LinkedList();
+    public GraphAlgorithms(int numVertices) {
+        this.numVertices = numVertices;
+        this.adjacencyList = new LinkedList[this.numVertices];
+        for (int i = 0; i < this.adjacencyList.length; i++) {
+            this.adjacencyList[i] = new LinkedList<Integer>();
         }
         this.result = "";
     }
@@ -28,27 +27,54 @@ public class GraphAlgorithms {
     public void addGraphEdge(int first, int second) {
         this.result += "(" + first + ", " + second + "), ";
         adjacencyList[first].add(second);
-        adjacencyList[second].add(first);
     }
 
 
-    public void performCycleDetection() {
+    public Boolean hasCycle() {
+        Boolean[] hasVisitedVertices = new Boolean[this.numVertices];
+        for (int i = 0; i < hasVisitedVertices.length; i++) {
+            hasVisitedVertices[i] = Boolean.FALSE;
+        }
 
+        for (int i = 0; i < hasVisitedVertices.length; i++) {
+            if (hasVisitedVertices[i] == false) {
+                if (hasCycleHelper(i, hasVisitedVertices, -1) == true) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
-    public void performBFS() {
-
+    public Boolean hasCycleHelper(int current, Boolean[] visitedVertices, int parent) {
+        visitedVertices[current] = true;
+        Iterator<Integer> iter = this.adjacencyList[current].iterator();
+        while (iter.hasNext()) {
+            Integer currentItem = iter.next();
+            if (visitedVertices[currentItem] != false) {
+                if (hasCycleHelper(currentItem, visitedVertices,
+                    current) == true) {
+                    return true;
+                }
+            }
+            else if (currentItem != parent) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
-    public void performDFS() {
-
-    }
-
-
-    public void performDijsktra() {
-
+    public String displayHasCycleResults() {
+        String result = "";
+        if (this.hasCycle()) {
+            result = "Graph contains cycle";
+        }
+        else {
+            result = "Graph doesn't contains cycle";
+        }
+        return result;
     }
 
 
