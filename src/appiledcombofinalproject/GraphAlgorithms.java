@@ -17,7 +17,7 @@ public class GraphAlgorithms {
         this.numVertices = numVertices;
         this.adjacencyList = new LinkedList[this.numVertices];
         for (int i = 0; i < this.adjacencyList.length; i++) {
-            this.adjacencyList[i] = new LinkedList<Integer>();
+            adjacencyList[i] = new LinkedList<Integer>();
         }
         this.result = "";
     }
