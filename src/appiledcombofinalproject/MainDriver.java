@@ -56,9 +56,9 @@ public class MainDriver {
             String secondVertex = "";
             
             if(vertexType.equals("s")) { //String Input (Letters and Numbers Allowed)
-                System.out.print("\nEnter the First Vertex where you want to Add an Edge (SINGLE-INPUT Input Only): ");
+                System.out.print("\nEnter the First Vertex where you want to Add an Edge (SINGLE-LETTER Input Only): ");
                 firstVertex = input.nextLine(); 
-                System.out.print("Enter the Second Vertex where you want to Add an Edge (SINGLE-INPUT Input Only): ");
+                System.out.print("Enter the Second Vertex where you want to Add an Edge (SINGLE-LETTER Input Only): ");
                 secondVertex = input.nextLine();
                 if(isNumeric(firstVertex) && isNumeric(secondVertex)) {
                     continue;
@@ -66,9 +66,9 @@ public class MainDriver {
                 else {
                     while(firstVertex.length() != 1 || secondVertex.length() != 1) {
                         System.out.println("\nERROR! Invalid Input. Please enter the edge vertices again!");
-                        System.out.print("Enter the First Vertex where you want to Add an Edge (SINGLE-INPUT Input Only): ");
+                        System.out.print("Enter the First Vertex where you want to Add an Edge (SINGLE-LETTER Input Only): ");
                         firstVertex = input.nextLine(); 
-                        System.out.print("Enter the Second Vertex where you want to Add an Edge (SINGLE-INPUT Input Only): ");
+                        System.out.print("Enter the Second Vertex where you want to Add an Edge (SINGLE-LETTER Input Only): ");
                         secondVertex = input.nextLine();
                     }
                 }
