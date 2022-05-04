@@ -2,7 +2,7 @@
 
 ### Duration of Project: Monday 04/23/22 - Wednesday 5/4/22
 
-### Contributors: Andrew Tran
+### Contributor(s): Andrew Tran
 
 ### Project Description: 
 
